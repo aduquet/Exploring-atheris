@@ -43,6 +43,7 @@ def TestOneInput(data):
 
   # prefix = data[:len("Sunday")]
   reg = re.compile(b"(Sun|Mon)day")
+  print(reg)
 
   if reg.search(data):
     raise RuntimeError("Solved RegEx")

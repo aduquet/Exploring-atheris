@@ -51,6 +51,7 @@ def TestOneInput(data):
 
   try:
     decompressed = zlib.decompress(data)
+    print(decompressed)
   except zlib.error:
     return
 
@@ -66,7 +67,10 @@ def TestOneInput(data):
 
 if __name__ == '__main__':
   if len(sys.argv) > 1 and sys.argv[1] == '--no_mutator':
+    print('+')
     atheris.Setup(sys.argv, TestOneInput)
   else:
-    atheris.Setup(sys.argv, TestOneInput, custom_mutator=CustomMutator)
+    print('===========================')
+
+    atheris.Setup(sys.argv, TestOneInput, custom_mutator='CustomMutator')
   atheris.Fuzz()
